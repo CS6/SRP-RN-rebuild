@@ -10,8 +10,8 @@ import {
     Button 
 } from 'react-native';
 import QRCode from 'react-native-qrcode';
-
-import { SafeAreaView, } from 'react-navigation';
+import { createBottomTabNavigator, SafeAreaView, createStackNavigator,withNavigation } from 'react-navigation';
+import Home from '../home/otherpage';
 
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
@@ -41,7 +41,8 @@ export default class qrcode extends Component {
               fgColor='white'/>
                <Button
             title="Go to Home"
-            onPress={() => this.props.navigation.navigate('index')}/>
+            onPress={() => this.props.navigation.navigate('Home')}/>
+
           </View>
           </SafeAreaView>
     
@@ -49,6 +50,8 @@ export default class qrcode extends Component {
         );
       };
 }
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

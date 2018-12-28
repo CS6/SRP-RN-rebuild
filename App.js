@@ -15,7 +15,7 @@ import CommonHead from './app/components/commonHead';
 
 import Recommend from './app/page/home/recommend';
 import Otherpage from './app/page/home/otherpage';
-import Qrcode from './app/page/home/qrcode';
+import Qrcode from './app/page/qrcode/QRvue';
 import Settings from './app/page/home/Settings';
 import Details from './app/page/home/Details';
 // import Info from './app/page/home/Dinfo';
