@@ -7,17 +7,23 @@ import {
   TouchableOpacity,
   Linking, 
   View, 
+  TextInput,
   ScrollView } from 'react-native';
 
 import firebase from 'react-native-firebase';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import QRCode from 'react-native-qrcode';
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {};
   }
+  state = {
+    text: 'http://facebook.github.io/react-native/',
+  };
+
   onSuccess(e) {
     Linking
       .openURL(e.data)
@@ -40,10 +46,20 @@ export default class App extends React.Component {
             Welcome to {'\n'} React Native Firebase
           </Text>
           <Icon name="bed" size={30} color="#900" />
-
+          <TextInput
+          style={styles.input}
+          onChangeText={(text) => this.setState({text: text})}
+          value={this.state.text}
+        />
+        <QRCode
+          value={this.state.text}
+          size={200}
+          bgColor='purple'
+          fgColor='white'/>
           <Text style={styles.instructions}>
             To get started, edit App.js
           </Text>
+          
           <QRCodeScanner
         onRead={this.onSuccess.bind(this)}
         topContent={
@@ -145,4 +161,12 @@ const styles = StyleSheet.create({
   buttonTouchable: {
     padding: 16,
   },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: 5,
+    padding: 5,
+}
 });
