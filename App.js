@@ -11,6 +11,7 @@ import {
 
 import firebase from 'react-native-firebase';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class App extends React.Component {
   constructor() {
@@ -38,6 +39,8 @@ export default class App extends React.Component {
           <Text style={styles.welcome}>
             Welcome to {'\n'} React Native Firebase
           </Text>
+          <Icon name="bed" size={30} color="#900" />
+
           <Text style={styles.instructions}>
             To get started, edit App.js
           </Text>
