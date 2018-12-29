@@ -20,7 +20,11 @@ export default class otherpage extends Component {
     render() {
         return (
             <WebView
-        source={{uri: 'https://github.com/facebook/react-native'}}
+            source={{uri: 'https://jiimmysu.github.io/in-app-browser-test/'}}
+
+            // source={{uri: 'https://www.google.com.tw/maps/@24.1397323,120.6878903,15z?hl=zh-TW&authuser=0'}}
+            
+        // source={{uri: 'https://github.com/facebook/react-native'}}
         style={{marginTop: 20}}
       />
         );
