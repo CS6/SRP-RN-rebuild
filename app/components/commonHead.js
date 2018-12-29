@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import ViewPropTypes from 'prop-types';
 import {
     StyleSheet,
     Text,
@@ -12,10 +12,10 @@ import {
 const {width,height} = Dimensions.get('window');
 
 export default class commonNavBar extends Component {
-    static propTypes = {
-      leftItem: PropTypes.func,
-      titleItem: PropTypes.func,
-      rightItem: PropTypes.func,
+    static ViewPropTypes = {
+      leftItem: ViewPropTypes.func,
+      titleItem: ViewPropTypes.func,
+      rightItem: ViewPropTypes.func,
     };
     renderLeftItem(){
         if (this.props.leftItem === undefined) return;
