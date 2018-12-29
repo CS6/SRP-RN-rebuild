@@ -59,4 +59,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: 5,
+    padding: 5,
+  },
 });

@@ -13,34 +13,24 @@ import {
 
 import CommonHead from '../../components/commonHead';
 
-import { createBottomTabNavigator,StackNavigator, SafeAreaView, createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, SafeAreaView, createStackNavigator } from 'react-navigation';
 import QRvue from '../qrcode/QRvue';
 import Details from '../home/Details';
 import WEB from '../web/Webview';
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
 
+const RootStack = createStackNavigator(
+  {
+    QR: QRvue,
+    Details: Details,
+    Web:WEB,
+  },
+  {
+    initialRouteName: 'QR',
+  }
+);
 
-
-// const Stack = StackNavigator(
-//   {
-//     QRvue: { screen: QRvue },
-//     Details: { screen: Details },
-//     WEB:{ screen: WEB }
-//   },
-
-//   {
-//       navigationOptions: {
-//           headerBackTitle: null,
-//           headerTintColor: '#333333',
-//           showIcon: true,
-//           gesturesEnabled: true,
-//           header: null,
-//       },
-//       mode: 'card',
-//       headerMode: 'screen',
-//   }
-// );
 
 export default class top extends Component {
 
@@ -65,7 +55,7 @@ export default class top extends Component {
   renderLeftItem() {
     return (
 
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('QRvue')}
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('QR')}
         style={styles.navLeft}>
         <Image source={require('../../img/scanning.png')} style={styles.navIcon} />
         <Text style={styles.navText}>扫一扫</Text>
@@ -75,7 +65,7 @@ export default class top extends Component {
   // 头部中间
   renderTitleItem() {
     return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }}>
+      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Web') }}>
         <View style={styles.searchBox}>
           <Image source={require('../../img/search.png')} style={styles.searchIcon} />
           <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
@@ -87,7 +77,7 @@ export default class top extends Component {
   
   renderRightItem() {
     return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('WEB') }} style={styles.navRight}>
+      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }} style={styles.navRight}>
         <Image source={require('../../img/remind.png')} style={styles.navIcon} />
         <Text style={styles.navText}>消息</Text>
       </TouchableOpacity>

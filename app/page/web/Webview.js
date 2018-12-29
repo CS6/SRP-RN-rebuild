@@ -19,13 +19,10 @@ export default class otherpage extends Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-
-            <View style={styles.container}>
-                <Text>otherpage</Text>
-                
-            </View>
-            </SafeAreaView>
+            <WebView
+        source={{uri: 'https://github.com/facebook/react-native'}}
+        style={{marginTop: 20}}
+      />
         );
     }
 }
