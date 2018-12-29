@@ -347,12 +347,9 @@ export default createBottomTabNavigator({
         // icon component from react-native-vector-icons
         // return <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
         return (
-          <SafeAreaView style={styles.container}>
-
-          <View style={styles.container}>
+         
               <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
-          </View>
-          </SafeAreaView>
+       
       );
       },
     }),
@@ -361,7 +358,6 @@ export default createBottomTabNavigator({
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
     },
-
   },
 
 
