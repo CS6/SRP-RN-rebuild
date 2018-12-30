@@ -20,7 +20,7 @@ import { Platform,
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
-import { createBottomTabNavigator, SafeAreaView, createStackNavigator,withNavigation } from 'react-navigation';
+import { createBottomTabNavigator, SafeAreaView, createStackNavigator } from 'react-navigation';
 
 import Top from './app/page/top/top';
 // import Mian from './mian_vue';
@@ -42,40 +42,9 @@ const instructions = Platform.select({
 
 
 type Props = {};
+export default class App extends Component<Props> {
 
 
-class DetailsScreen extends React.Component {
-  static navigationOptions = {
-    // headerTitle instead of title
-    headerTitle: <Top />,
-    //title: 'Details',
-
-  };
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-
-        <Button
-          title="GoBack"
-          onPress={() => this.props.navigation.goBack().Alert("hi")}
-
-        />
-
-<Button
-          title="console"
-          onPress={() => console.warn(this.props)
-        }
-
-        />
-        
-      </View>
-    );
-  }
-}
-
-class TTOOPP extends React.Component {
-  
   // 头部左侧
   renderLeftItem() {
     return (
@@ -108,68 +77,19 @@ class TTOOPP extends React.Component {
       </TouchableOpacity>
     )
   }
-
-
-  // static navigationOptions = {
-  //   // headerTitle instead of title
-  //   headerTitle:  >,
-  //   //title: 'Details',
-
-  // };
-
-  render() {
-    return (
-      <CommonHead
-     leftItem={() => this.renderLeftItem()}
-     titleItem={() => this.renderTitleItem()}
-   rightItem={() => this.renderRightItem()}/>
-   
-
-    );
-  }
-}
-class MyBackButton extends React.Component {
-  render() {
-    return <Button title="Back" onPress={() => { this.props.navigation.push('Details')}} />;
-  }
-}
-
-// export default withNavigation(MyBackButton);
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    // headerTitle instead of title
-    
-    // headerTitle: <TTOOPP />,
-    headerTitle:  
-    <Button
-    title="Go to Details"
-    onPress={() => console.warn(DetailsScreen())}
-  />
-
-    //title: 'Details',
-    
-    
-   
-
-  };
-
-
-
-
   render() {
     return (
       <SafeAreaView style={styles.container}>
 
       <View style={styles.container}>
-       
+        <CommonHead
+              leftItem={() => this.renderLeftItem()}
+              titleItem={() => this.renderTitleItem()}
+              rightItem={() => this.renderRightItem()}/>
+            
           
           <View style={styles.home}>
-          {/* <Mian/>  */}
-          <Button
-    title="Go to Details"
-    onPress={() => this.props.navigation.push('Details')}
-  />
+          <Mian/>
           </View>
 
       </View>
@@ -178,29 +98,6 @@ class HomeScreen extends React.Component {
   }
 }
 
-const RootStack = createStackNavigator(
-  {
-    Home:{ screen: HomeScreen } ,
-    
-    Details:{ screen: DetailsScreen},
-    
-  },
-  {
-    initialRouteName: 'Home',
-  }
-);
-
-export default class App extends Component<Props> {
-
-
-  render() {
-    return (
-      
-                  <RootStack />
-     
-    );
-  }
-}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
