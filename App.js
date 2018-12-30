@@ -31,8 +31,10 @@ import CommonHead from './app/components/commonHead';
 import QRvue from './app/page/qrcode/QRvue';
 import Details from './app/page/home/Details';
 import WEB from './app/page/web/Webview';
-
-
+import Btn_Qrcode from './app/page/home/Btn_Qrcode';
+import Btn_Search from './app/page/home/Btn_Search';
+import Btn_Remind from './app/page/home/Btn_Remind';
+import Btn from './app/page/home/btn';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or59487 shake for dev menu',
   android:
@@ -47,8 +49,8 @@ type Props = {};
 class DetailsScreen extends React.Component {
   static navigationOptions = {
     // headerTitle instead of title
-    headerTitle: <Top />,
-    //title: 'Details',
+    // headerTitle: <Top />,
+    title: 'Details',
 
   };
   render() {
@@ -80,32 +82,36 @@ class TTOOPP extends React.Component {
   renderLeftItem() {
     return (
 
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('QRvue')}
-        style={styles.navLeft}>
-        <Image source={require('./app/img/scanning.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>扫一扫</Text>
-      </TouchableOpacity>
+      // <TouchableOpacity onPress={() => this.props.navigation.navigate('QRvue')}
+      //   style={styles.navLeft}>
+      //   <Image source={require('./app/img/scanning.png')} style={styles.navIcon} />
+      //   <Text style={styles.navText}>扫一扫</Text>
+      // </TouchableOpacity>
+      <Btn_Qrcode/>
     )
   }
+  
   // 头部中间
   renderTitleItem() {
     return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }}>
-        <View style={styles.searchBox}>
-          <Image source={require('./app/img/search.png')} style={styles.searchIcon} />
-          <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
-        </View>
-      </TouchableOpacity>
+      // <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }}>
+      //   <View style={styles.searchBox}>
+      //     <Image source={require('./app/img/search.png')} style={styles.searchIcon} />
+      //     <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
+      //   </View>
+      // </TouchableOpacity>
+      <Btn_Search/>
     )
   }
   // 头部右侧
   
   renderRightItem() {
     return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('WEB') }} style={styles.navRight}>
-        <Image source={require('./app/img/remind.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>消息</Text>
-      </TouchableOpacity>
+      // <TouchableOpacity onPress={() => { this.props.navigation.navigate('WEB') }} style={styles.navRight}>
+      //   <Image source={require('./app/img/remind.png')} style={styles.navIcon} />
+      //   <Text style={styles.navText}>消息</Text>
+      // </TouchableOpacity>
+      <Btn_Remind/>
     )
   }
 
@@ -140,13 +146,13 @@ class HomeScreen extends React.Component {
   static navigationOptions = {
     // headerTitle instead of title
     
-    // headerTitle: <TTOOPP />,
-    headerTitle:  
-    <Button
-    title="Go to Details"
-    onPress={() => console.warn(DetailsScreen())}
-  />
-
+     headerTitle: <TTOOPP />,
+  //  headerTitle:  
+  //   <Button
+  //   title="Go to Details"
+  //   onPress={() => console.warn(DetailsScreen())}
+  // />
+//<Btn_Qrcode/>
     //title: 'Details',
     
     
@@ -165,11 +171,11 @@ class HomeScreen extends React.Component {
        
           
           <View style={styles.home}>
-          {/* <Mian/>  */}
-          <Button
+          <Mian/> 
+          {/* <Button
     title="Go to Details"
     onPress={() => this.props.navigation.push('Details')}
-  />
+  /> */}
           </View>
 
       </View>
@@ -182,6 +188,8 @@ const RootStack = createStackNavigator(
   {
     Home:{ screen: HomeScreen } ,
     
+    QRvue:{ screen: QRvue},
+
     Details:{ screen: DetailsScreen},
     
   },

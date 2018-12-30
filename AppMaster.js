@@ -43,37 +43,37 @@ class scroll_Screen extends React.Component {
     }, 0)
   }
 
-  // 头部左侧
-  renderLeftItem() {
-    return (
+  // // 头部左侧
+  // renderLeftItem() {
+  //   return (
 
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('qrcode')}
-        style={styles.navLeft}>
-        <Image source={require('./app/img/scanning.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>扫一扫</Text>
-      </TouchableOpacity>
-    )
-  }
-  // 头部中间
-  renderTitleItem() {
-    return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Other') }}>
-        <View style={styles.searchBox}>
-          <Image source={require('./app/img/search.png')} style={styles.searchIcon} />
-          <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-  // 头部右侧
-  renderRightItem() {
-    return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }} style={styles.navRight}>
-        <Image source={require('./app/img/remind.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>消息</Text>
-      </TouchableOpacity>
-    )
-  }
+  //     <TouchableOpacity onPress={() => this.props.navigation.navigate('qrcode')}
+  //       style={styles.navLeft}>
+  //       <Image source={require('./app/img/scanning.png')} style={styles.navIcon} />
+  //       <Text style={styles.navText}>扫一扫</Text>
+  //     </TouchableOpacity>
+  //   )
+  // }
+  // // 头部中间
+  // renderTitleItem() {
+  //   return (
+  //     <TouchableOpacity onPress={() => { this.props.navigation.navigate('Other') }}>
+  //       <View style={styles.searchBox}>
+  //         <Image source={require('./app/img/search.png')} style={styles.searchIcon} />
+  //         <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
+  //       </View>
+  //     </TouchableOpacity>
+  //   )
+  // }
+  // // 头部右侧
+  // renderRightItem() {
+  //   return (
+  //     <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }} style={styles.navRight}>
+  //       <Image source={require('./app/img/remind.png')} style={styles.navIcon} />
+  //       <Text style={styles.navText}>消息</Text>
+  //     </TouchableOpacity>
+  //   )
+  // }
 
   // 滑动tab
   renderScrollableTab() {
@@ -134,11 +134,11 @@ class scroll_Screen extends React.Component {
       <SafeAreaView style={styles.container}>
 
         <View style={styles.container}>
-          <CommonHead
+          {/* <CommonHead
             leftItem={() => this.renderLeftItem()}
             titleItem={() => this.renderTitleItem()}
             rightItem={() => this.renderRightItem()}
-          />
+          /> */}
           <View style={{ flex: 1 }}>
             {this.renderScrollableTab()}
           </View>
@@ -151,39 +151,6 @@ class scroll_Screen extends React.Component {
 
 class index_Screen extends React.Component {
 
-
-
-  // 头部左侧
-  renderLeftItem() {
-    return (
-
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('qrcode')}
-        style={styles.navLeft}>
-        <Image source={require('./app/img/scanning.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>扫一扫</Text>
-      </TouchableOpacity>
-    )
-  }
-  // 头部中间
-  renderTitleItem() {
-    return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }}>
-        <View style={styles.searchBox}>
-          <Image source={require('./app/img/search.png')} style={styles.searchIcon} />
-          <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-  // 头部右侧
-  renderRightItem() {
-    return (
-      <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }} style={styles.navRight}>
-        <Image source={require('./app/img/remind.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>消息</Text>
-      </TouchableOpacity>
-    )
-  }
 
   // 滑动tab
   renderScrollableTab() {
@@ -210,11 +177,7 @@ class index_Screen extends React.Component {
       <SafeAreaView style={styles.container}>
 
         <View style={styles.container}>
-          <CommonHead
-            leftItem={() => this.renderLeftItem()}
-            titleItem={() => this.renderTitleItem()}
-            rightItem={() => this.renderRightItem()}
-          />
+         
           <View style={{ flex: 1 }}>
             {this.renderScrollableTab()}
           </View>

@@ -24,6 +24,12 @@ const { width, height } = Dimensions.get('window');
 
 
 export default class qrcode extends Component {
+  static navigationOptions = {
+    // headerTitle instead of title
+    // headerTitle: <Top />,
+    title: 'qrcode',
+
+  };
 
     state = {
         text: 'http://facebook.github.io/react-native/',
@@ -33,7 +39,7 @@ export default class qrcode extends Component {
     super(props);
     this.state = {
       tabShow: false,
-      label: [ '掃碼', '二維碼'],
+      label: [ '二維碼', '掃碼'],
     };
   }
 
@@ -100,7 +106,6 @@ export default class qrcode extends Component {
           
    
           <SafeAreaView style={styles.container}>
-        <Top/>
           <View style={{ flex: 1 }}>
             {this.renderScrollableTab()}
           </View>
