@@ -35,6 +35,7 @@ import Btn_Qrcode from './app/page/home/Btn_Qrcode';
 import Btn_Search from './app/page/home/Btn_Search';
 import Btn_Remind from './app/page/home/Btn_Remind';
 import Btn from './app/page/home/btn';
+import Login_View from './Login_View';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or59487 shake for dev menu',
   android:
@@ -171,7 +172,8 @@ class HomeScreen extends React.Component {
        
           
           <View style={styles.home}>
-          <Mian/> 
+          {/* <Mian/>  */}
+          <Login_View/>
           {/* <Button
     title="Go to Details"
     onPress={() => this.props.navigation.push('Details')}

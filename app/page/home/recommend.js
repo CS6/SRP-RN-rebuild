@@ -8,6 +8,7 @@ import {
     Dimensions,
     ScrollView,
     FlatList,
+    
 } from 'react-native';
 
 //引用插件
@@ -191,11 +192,13 @@ export default class recommend extends Component {
     render() {
         return (
             <View style={styles.container}>
+            <ScrollView>
                 {this.renderBanner()}
                 {this.renderTips()}
                 {this.renderSpecial()}
                 {this.renderTopic()}
                 {this.renderLike()}
+                </ScrollView>
             </View>
         );
     }
