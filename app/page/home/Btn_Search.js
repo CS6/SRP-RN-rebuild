@@ -8,7 +8,7 @@ class Btn_Search extends React.Component {
     return (
     
    
-  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }}>
+  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Login') }}>
         <View style={styles.searchBox}>
           <Image source={require('../../img/search.png')} style={styles.searchIcon} />
           <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: width * 0.7,
+    width: width * 0.5,
     backgroundColor: '#ededed',
     borderRadius: 5,
     height: 30,

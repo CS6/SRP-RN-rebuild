@@ -34,8 +34,12 @@ import WEB from './app/page/web/Webview';
 import Btn_Qrcode from './app/page/home/Btn_Qrcode';
 import Btn_Search from './app/page/home/Btn_Search';
 import Btn_Remind from './app/page/home/Btn_Remind';
+
+
 import Btn from './app/page/home/btn';
 import Login_View from './Login_View';
+import Login_index from './Login_index';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or59487 shake for dev menu',
   android:
@@ -127,9 +131,10 @@ class TTOOPP extends React.Component {
   render() {
     return (
       <CommonHead
-     leftItem={() => this.renderLeftItem()}
+    //  leftItem={() => this.renderLeftItem()}
      titleItem={() => this.renderTitleItem()}
-   rightItem={() => this.renderRightItem()}/>
+  //  rightItem={() => this.renderRightItem()}
+   />
    
 
     );
@@ -148,6 +153,18 @@ class HomeScreen extends React.Component {
     // headerTitle instead of title
     
      headerTitle: <TTOOPP />,
+     headerLeft: (  //定义导航栏右侧的按钮
+      // <Text style={{width:1}}></Text>
+      <Btn_Qrcode/>
+
+      ),
+      headerLeftContainerStyle: {paddingRight: 100},
+      headerRight:(  //定义导航栏右侧的按钮
+        // <Text style={{width:1}}></Text>
+        <Btn_Remind/>
+  
+        ),
+        
   //  headerTitle:  
   //   <Button
   //   title="Go to Details"
@@ -172,8 +189,8 @@ class HomeScreen extends React.Component {
        
           
           <View style={styles.home}>
-          {/* <Mian/>  */}
-          <Login_View/>
+          <Mian/> 
+          {/* <Login_index/> */}
           {/* <Button
     title="Go to Details"
     onPress={() => this.props.navigation.push('Details')}
@@ -191,12 +208,13 @@ const RootStack = createStackNavigator(
     Home:{ screen: HomeScreen } ,
     
     QRvue:{ screen: QRvue},
+    Login:{screen:Login_index},
 
     Details:{ screen: DetailsScreen},
     
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
   }
 );
 
