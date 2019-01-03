@@ -28,6 +28,13 @@ export default class qrcode extends Component {
     // headerTitle instead of title
     // headerTitle: <Top />,
     title: 'qrcode',
+    headerTitleStyle:{flex:1, textAlign: 'center'},
+    headerRight:(  //定义导航栏右侧的按钮
+      // <Text style={{width:1}}></Text>
+      <Text/>
+
+      ),
+
 
   };
 
@@ -39,7 +46,7 @@ export default class qrcode extends Component {
     super(props);
     this.state = {
       tabShow: false,
-      label: [ '二維碼', '掃碼'],
+      label: [ '顯示QRcode', '掃描QRcode'],
     };
   }
 
@@ -74,12 +81,12 @@ export default class qrcode extends Component {
               switch (item) {
                 
                 
-                case '掃碼':
+                case '顯示QRcode':
                   return (
                     <Qrcode tabLabel={item} key={index} />
                   )
                   break;
-                case '二維碼':
+                case '掃描QRcode':
                   return (
                     <Scanner tabLabel={item} key={index} />
                   )

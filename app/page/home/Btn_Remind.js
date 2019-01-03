@@ -1,16 +1,18 @@
 import React from 'react';
 import { Button,StyleSheet,TouchableOpacity,Image,Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class Btn_Remind extends React.Component {
   render() {
     return (
     
-    <TouchableOpacity onPress={() => this.props.navigation.navigate('Details')}
+    <TouchableOpacity onPress={() => this.props.navigation.navigate('Setting')}
     style={styles.navRight}>
-    
-    <Image source={require('../../img/remind.png')} style={styles.navIcon} />
-        <Text style={styles.navText}>消息</Text>
+        <Icon name={"cog"}  style={styles.Icon}  />
+
+    {/* <Image source={require('../../img/remind.png')} style={styles.navIcon} /> */}
+        <Text style={styles.navText}>設  定</Text>
   </TouchableOpacity>
     
     );
@@ -33,6 +35,10 @@ const styles = StyleSheet.create({
       navIcon: {
         height: 20,
         width: 20,
+      },
+      Icon: {
+        fontSize: 24,
+        color:"#333"
       },
       navText: {
         fontSize: 10,

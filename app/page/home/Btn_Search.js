@@ -28,10 +28,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: width * 0.5,
+    width: width * 0.7,
     backgroundColor: '#ededed',
     borderRadius: 5,
     height: 30,
+
   },
   searchIcon: {
     width: 16,

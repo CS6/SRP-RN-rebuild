@@ -20,6 +20,12 @@ import Settings from './app/page/home/Settings';
 import Details from './app/page/home/Details';
 import Webview from './app/page/web/Webview';
 
+import Request from './app/page/calendar/Request';
+import Reply from './app/page/calendar/Reply';
+
+
+
+
 // import Info from './app/page/home/Dinfo';
 const { width, height } = Dimensions.get('window');
 
@@ -270,8 +276,8 @@ export default createBottomTabNavigator({
   Settings: { screen: Settings },
   meow: { screen: meow },
   info: { screen: Webview },
-  qrcode: { screen: Qrcode },
-  Details: { screen: Details },
+  Request: { screen: Request },
+  Reply: { screen: Reply },
   index: { screen: index_Screen },
   Other: { screen: Otherpage },
 
@@ -289,16 +295,18 @@ export default createBottomTabNavigator({
           iconName = "rocket";
         } else if (routeName === 'info') {
           iconName = "android";
-        } else if (routeName === 'qrcode') {
-          iconName = "qrcode";
+        } else if (routeName === 'Request') {
+          iconName = "calendar-alt";
         } else if (routeName === 'scroll') {
           iconName = "assistive-listening-systems";
-        } else if (routeName === 'Details') {
-          iconName = "bell-slash";
+
+        } else if (routeName === 'Reply') {
+          iconName = "calendar-check";
+
         } else if (routeName === 'Other') {
           iconName = "video";
         } else if (routeName === 'index') {
-          iconName = "alipay";
+          iconName = "bell-slash";
         }
 
 
