@@ -30,12 +30,12 @@ import CommonHead from './app/components/commonHead';
 
 import QRvue from './app/page/qrcode/QRvue';
 import Details from './app/page/home/Details';
-import Setting from './app/page/home/Setting'
+import Setting from './app/page/setting/Setting'
 import WEB from './app/page/web/Webview';
 import Btn_Qrcode from './app/page/home/Btn_Qrcode';
 import Btn_Search from './app/page/home/Btn_Search';
 import Btn_Remind from './app/page/home/Btn_Remind';
-
+import Request from './app/page/calendar/Request';
 
 import Btn from './app/page/home/btn';
 import Login_View from './Login_View';
@@ -185,7 +185,13 @@ class HomeScreen extends React.Component {
     // tabBarComponent: <TTOOPP />,
       headerTitle:<Btn_Search/>,
     //  headerTitle:<Text >FUCK</Text>,
+    headerStyle: {
+      // backgroundColor: '#f4511e',
+      backgroundColor: '#F8C3CD',
 
+      
+      },
+    headerColor:"red",
      headerLeft: (  //定义导航栏右侧的按钮
       // <Text style={{width:1}}></Text>
       <Btn_Qrcode/>
@@ -207,33 +213,30 @@ class HomeScreen extends React.Component {
   // />
 //<Btn_Qrcode/>
     //title: 'Details',
-    
-    
-   
 
-  };
+};
 
 
 
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
+      // <SafeAreaView style={styles.container}>
 
       <View style={styles.container}>
        
           
-          <View style={styles.home}>
+          {/* <View style={styles.home}> */}
           <Mian/> 
           {/* <Login_index/> */}
           {/* <Button
     title="Go to Details"
     onPress={() => this.props.navigation.push('Details')}
   /> */}
-          </View>
+          {/* </View> */}
 
       </View>
-      </SafeAreaView>
+      //</SafeAreaView> 
     );
   }
 }
@@ -248,6 +251,7 @@ const RootStack = createStackNavigator(
     Setting:{ screen: Setting},
 
     Details:{ screen: DetailsScreen},
+    Request:{ screen: Request},
     
   },
   {
@@ -271,12 +275,15 @@ export default class App extends Component<Props> {
     return (
       // <Hello_Stack onNavigationStateChange={(prevState, currentState) => { console.log(currentState) }} />
                 // <Hello_Stack />
-
+<SafeAreaView style={{flex: 1, backgroundColor: 'red'}} forceInset={{ bottom: 'never' ,top: 'never' }}>
                   <RootStack />
-     
+                  </SafeAreaView>
+
     );
   }
 }
+
+////消除多餘安全邊距 https://reactnavigation.org/docs/zh-Hans/handling-iphonex.html
 const styles = StyleSheet.create({
   container: {
     flex: 1,

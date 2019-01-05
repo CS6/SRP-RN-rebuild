@@ -144,11 +144,20 @@ _pass_to_jamp = () => {
    
   <TouchableOpacity onPress={ this._retrieveData}>
         <View style={styles.searchBox}>
-          <Text style={styles.searchContent}>登入</Text>
+          <Text style={styles.searchContent}>快按我////, O(W)O</Text>
         </View>
       </TouchableOpacity>
      
 
+     <TouchableOpacity onPress={this._OK_add}>
+     <View style={styles.searchBox}>
+       <Text style={styles.searchContent}>檢查我////, O(W)O</Text>
+       <Text>access:{this.AB_state.key}</Text>
+       <Text>access:{this.AB_state.value}</Text>
+
+
+     </View>
+   </TouchableOpacity>
 
    </View>
 
@@ -165,10 +174,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: width * 0.6,
-    paddingVertical:10,
-    backgroundColor: '#A58987',
-    borderRadius: 10,
+    width: width * 0.7,
+    backgroundColor: '#ededed',
+    borderRadius: 5,
+    height: 30,
   },
   searchIcon: {
     width: 16,
@@ -176,8 +185,8 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchContent: {
-    color: '#FFF',
-    fontSize: 20,
+    color: '#666',
+    fontSize: 14,
   },
   });
   

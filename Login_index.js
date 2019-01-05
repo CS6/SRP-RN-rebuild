@@ -15,6 +15,7 @@ import {
 
 } from 'react-native';
 import { createBottomTabNavigator, SafeAreaView, createStackNavigator,withNavigation } from 'react-navigation';
+import Btn_Search from './app/page/home/Btn_Search';
 
 import Btn_Login from './app/page/home/Btn_Login';
 // 取得屏幕的宽高Dimensions
@@ -284,12 +285,13 @@ export default class Login_index extends Component {
         const { user, confirmResult } = this.state;
 
         return (
-            <SafeAreaView style={styles.container}>
+            // <SafeAreaView style={styles.container}>
 
             <View style={styles.container}>
             <Image style={styles.background} source={{ uri: 'https://unsplash.it/800/600?image=102&blur' }} />
         <View style={styles.container}>
         <Btn_Login/>
+        
 
           <Text style={[styles.title, { fontSize: 40}]}>Logo</Text>
         </View>
@@ -301,14 +303,14 @@ export default class Login_index extends Component {
   <ScrollView>
   <Text>data:{this.state.data}</Text>
   </ScrollView>
-                
+
                 <View style={styles.bottmContainer}>
-                <Button title='ADD' onPress={this._add}/>
-                <Button title='REMOVE' onPress={this._remove}/>
-                <Button title='GET' onPress={this._getAll}/>
+                <Button title='ADD' onPress={this._add}style={styles.button3} />
+                <Button title='REMOVE' onPress={this._remove}style={styles.button3} />
+                <Button title='GET' onPress={this._getAll}style={styles.button3} />
 </View>
 <ScrollView>
-
+<Btn_Search/>
 {!user && !confirmResult && this.renderPhoneNumberInput()}
 
 {this.renderMessage()}
@@ -336,15 +338,17 @@ export default class Login_index extends Component {
 </ScrollView>
 
         <View style={styles.bottmContainer}>
-          <TouchableOpacity style={[styles.button, { backgroundColor: '#53423D'}]}onPress={this._Google_Login}>
-            <Text style={styles.buttonText}>LOG IN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, { backgroundColor: '#A58987' }]}onPress={this._getAll}>
-            <Text style={styles.buttonText} >SIGN GET</Text>
-          </TouchableOpacity>
+          {/* <TouchableOpacity style={[styles.button, { backgroundColor: '#A58987' }]}onPress={this._getAll}>
+            <Text style={styles.buttonText} >登入</Text>
+
+          </TouchableOpacity> */}
+        <Btn_Login/>
+
         </View>
+
+
             </View>
-            </SafeAreaView>
+            // </SafeAreaView>
         );
     }
 }
@@ -377,6 +381,10 @@ const styles = StyleSheet.create({
   bottmContainer: {
     height: 60,
     flexDirection: 'row',
+    paddingHorizontal:50,
+    paddingVertical:10,
+    marginBottom:30,
+
   },
   background: {
     height: 800,
@@ -388,18 +396,36 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius:10,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
   },
   buttonText: {
+    fontSize: 25,
+    color: '#fff',
+    fontWeight: 'bold',
+   
+  },
+  button3: {
     fontSize: 20,
     color: '#fff',
     fontWeight: 'bold',
+        borderRadius:30,
+        backgroundColor: 'transparent',
+        borderStyle: 'solid',
+        borderLeftWidth: 50,
+        borderTopWidth: 50,
+        borderLeftColor: 'transparent',
+        borderTopColor: 'red',
   },
   title: {
     fontSize: 30,
     color: '#fff',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0)'
+    
   },
+
   desc: {
     fontSize: 20,
     color: '#fff',

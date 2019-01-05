@@ -28,6 +28,12 @@ export default class qrcode extends Component {
     // headerTitle instead of title
     // headerTitle: <Top />,
     title: 'qrcode',
+    headerStyle: {
+      // backgroundColor: '#f4511e',
+      backgroundColor: '#F0C0AB',
+
+      
+      },
     headerTitleStyle:{flex:1, textAlign: 'center'},
     headerRight:(  //定义导航栏右侧的按钮
       // <Text style={{width:1}}></Text>
@@ -68,7 +74,8 @@ export default class qrcode extends Component {
 
         <ScrollableTabView
           renderTabBar={() => <ScrollableTabBar />}
-          tabBarBackgroundColor='#fff'
+          //tabBarBackgroundColor='#fff'
+          tabBarBackgroundColor='#FEDFE1'
           tabBarActiveTextColor='#b4282d'
           tabBarInactiveTextColor='#333'
           tabBarUnderlineStyle={styles.tabBarUnderline}

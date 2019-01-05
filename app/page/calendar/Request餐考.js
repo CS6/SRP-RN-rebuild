@@ -20,39 +20,44 @@ import { SafeAreaView, } from 'react-navigation';
 const { width, height } = Dimensions.get('window');
 
 const items = [
-   {
-    name: "假別",
+  {  
+    name: "性別",
     id: 0,
     children: [{
-        name: "病假",
+        name: "A",
+        id: 10,
+      },{
+        name: "Strawberry",
+        id: 17,
+      },{
+        name: "Pineapple",
+        id: 13,
+      },{
+        name: "Banana",
+        id: 14,
+      },{
+        name: "Watermelon",
+        id: 15,
+      },{
+        name: "Kiwi fruit",
+        id: 16,
+      }]
+  },
+  {
+    name: "假別",
+    id: 1,
+    children: [{
+        name: "Quartz",
         id: 20,
       },{
-        name: "事假",
+        name: "Zircon",
         id: 21,
       },{
-        name: "喪假",
+        name: "Sapphire",
         id: 22,
       },{
-        name: "公假",
-        id: 24,
-      },{
-        name: "婚假",
-        id: 25,
-      },{
-        name: "產假",
-        id: 26,
-      },{
-        name: "遠端假",
-        id: 27,
-      },{
-        name: "生理假",
-        id: 28,
-      },{
-        name: "育嬰假",
-        id: 29,
-      },{
-        name: "其他",
-        id: 30,
+        name: "Topaz",
+        id: 23,
       }]
   },
 ]
@@ -138,12 +143,8 @@ export default class Request extends Component {
           selectedIconComponent={<Icon>cancel</Icon>}
           selectToggleIconComponent={
             <View style={styles.searchBox} placeholder='備註' onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}>
-{/* //////// */}
-          {/* <Icon>{items[0].children[0].name }</Icon> */}
-          <Icon>{items[0].name }</Icon>
 
-{/* //////// */}
-
+          <Icon>cancelcancelcancelcancelcancelcancel</Icon>
           </View>
         }
          // showCancelButton
@@ -183,8 +184,7 @@ export default class Request extends Component {
         />
 
 
-<Text>{        this.onSelectedItemsChange}</Text>
-  <Text>{this.state.selectedItems}</Text>
+
 
 
 

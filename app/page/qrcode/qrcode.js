@@ -27,6 +27,7 @@ export default class qrcode extends Component {
         return (
           <SafeAreaView style={styles.container}>
     
+            {/* <Image style={styles.background}  source={require('../../img/bkimg/1x/G1.png')} /> */}
           <View style={styles.container}>
     
             <TextInput
@@ -42,8 +43,7 @@ export default class qrcode extends Component {
                <Button
             title="Go to Home"
             onPress={() => this.props.navigation.navigate('Home')}/>
-
-          </View>
+  </View>
           </SafeAreaView>
     
            
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    // backgroundColor: '#F5FCFF',
   },
   input: {
     height: 40,
@@ -66,5 +66,11 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     padding: 5,
+  },
+  background: {
+    height: 1000,
+    width: 600,
+    position: 'absolute',
+    
   },
 });

@@ -23,6 +23,7 @@ import Webview from './app/page/web/Webview';
 import Request from './app/page/calendar/Request';
 import Reply from './app/page/calendar/Reply';
 
+import Ｄispatch from './app/page/dispatch/Ｄispatch'
 
 
 
@@ -89,9 +90,13 @@ class scroll_Screen extends React.Component {
 
         <ScrollableTabView
           renderTabBar={() => <ScrollableTabBar />}
-          tabBarBackgroundColor='#fff'
+          tabBarBackgroundColor='#EEA9A9'
           tabBarActiveTextColor='#b4282d'
           tabBarInactiveTextColor='#333'
+
+          // tabBarBackgroundColor='#fff'
+          // tabBarActiveTextColor='#b4282d'
+          // tabBarInactiveTextColor='#333'
           tabBarUnderlineStyle={styles.tabBarUnderline}
         >
               {/* label: ['推荐', '新品', '居家', '餐厨', '配件', '服装', '电器', '洗护', '杂货', '饮食', '婴童', '志趣'], */}
@@ -194,33 +199,12 @@ class index_Screen extends React.Component {
 }
 
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-
-          <Text>Home!</Text>
-          <Icon name="battery-full" size={30} color="#900" />
-          <Icon name="battery-three-quarters" size={30} color="#900" />
-          <Icon name="battery-half" size={30} color="#900" />
-          <Icon name="battery-quarter" size={30} color="#900" />
-          <Icon name="battery-empty" size={30} color="#900" />
-          <Icon name="bed" size={30} color="#900" />
-          <Icon name="american-sign-language-interpreting" size={30} color="#777" />
-
-        </View>
-      </SafeAreaView>
-    );
-  }
-}
-
 
 class meow extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+            <Image style={styles.background}  source={require('./app/img/bkimg/1x/G1.png')} />
 
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <ScrollView>
@@ -272,7 +256,7 @@ class meow extends React.Component {
 
 export default createBottomTabNavigator({
   scroll: { screen: scroll_Screen },
-  Home: { screen: HomeScreen },
+  Ｄispatch: { screen: Ｄispatch },
   Settings: { screen: Settings },
   meow: { screen: meow },
   info: { screen: Webview },
@@ -287,7 +271,7 @@ export default createBottomTabNavigator({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'Home') {
+        if (routeName === 'Ｄispatch') {
           iconName = "address-card";
         } else if (routeName === 'Settings') {
           iconName = "500px";
@@ -318,7 +302,7 @@ export default createBottomTabNavigator({
         // icon component from react-native-vector-icons
         // return <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
         return (
-         
+             
               <Icon name={iconName} size={horizontal ? 20 : 25} color={tintColor} />
        
       );
@@ -328,6 +312,9 @@ export default createBottomTabNavigator({
     tabBarOptions: {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
+      style: {
+        backgroundColor: '#F8C3CD',
+      },
     },
   },
 
@@ -341,6 +328,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },  background: {
+    height: 800,
+    width: 600,
+    position: 'absolute',
+    
   },
   logo: {
     height: 120,
