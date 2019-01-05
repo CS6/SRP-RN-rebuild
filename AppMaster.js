@@ -23,9 +23,9 @@ import Webview from './app/page/web/Webview';
 import Request from './app/page/calendar/Request';
 import Reply from './app/page/calendar/Reply';
 
-import Ｄispatch from './app/page/dispatch/Ｄispatch'
+import Ｄispatch from './app/page/dispatch/Ｄispatch';
 
-
+// import Registered from './app/page/registered/Registered';
 
 // import Info from './app/page/home/Dinfo';
 const { width, height } = Dimensions.get('window');
@@ -264,6 +264,7 @@ export default createBottomTabNavigator({
   Reply: { screen: Reply },
   index: { screen: index_Screen },
   Other: { screen: Otherpage },
+  // Registered:{screen:Registered}
 
 
 }, {

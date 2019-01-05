@@ -23,22 +23,22 @@ export default class recommend extends Component {
         super(props);
         this.state = {
             swiperShow: false,
-            tips: ['网易自营品牌', '30天无忧退货', '48小时快速退款'],
+            tips: ['Mono唯一推薦', '大貓豪惠吸', '48小时不打烊'],
             topic: [
                 {
-                    title: '岁末清扫有它们，体验大不同',
-                    describe: '更轻松、更美好的大扫除攻略',
-                    price: '9.9元起',
+                    title: '小型會議空間 Private Meeting Room',
+                    describe: ' 適合需要隱私的小組討論與教學，配備 SONY 4K 電視與音響、討論用白板等。',
+                    price: ' $300/小時',
                 },
                 {
-                    title: '新年一点红，幸运一整年',
-                    describe: '那些让你“红”运当头的好物',
-                    price: '9.9元起',
+                    title: 'Daily UI 100天練習生進駐計劃 ',
+                    describe: '可免費預約設計導師進行諮詢。 計畫詳情：https://medium.com/mo21',
+                    price: ' $6990 /三個月',
                 },
                 {
-                    title: '新年一点红，幸运一整年',
-                    describe: '那些让你“红”运当头的好物',
-                    price: '9.9元起',
+                    title: 'Monospace',
+                    describe: '擁有眺望大台中景觀的高樓視野',
+                    price: ' $6990 /三個月',
                 },
             ],
             special:[
@@ -73,17 +73,17 @@ export default class recommend extends Component {
                     dotStyle={styles.dotStyle}
                     activeDotStyle={styles.activeDotStyle}
                 >
-                    <Image source={require('../../img/1.jpg')} style={styles.bannerImg} />
-                    <Image source={require('../../img/2.jpg')} style={styles.bannerImg} />
-                    <Image source={require('../../img/3.jpg')} style={styles.bannerImg} />
-                    <Image source={require('../../img/4.jpg')} style={styles.bannerImg} />
-                    <Image source={require('../../img/3.jpg')} style={styles.bannerImg} />
+                    <Image source={require('../../img/01.jpg')} style={styles.bannerImg} />
+                    <Image source={require('../../img/02.jpg')} style={styles.bannerImg} />
+                    <Image source={require('../../img/03.jpg')} style={styles.bannerImg} />
+                    <Image source={require('../../img/04.jpg')} style={styles.bannerImg} />
+                    <Image source={require('../../img/03.jpg')} style={styles.bannerImg} />
                 </Swiper>
             )
         } else {
             return (
                 <View style={{ height: width * 40 / 75 }}>
-                    <Image source={require('../../img/1.jpg')} style={styles.bannerImg} />
+                    <Image source={require('../../img/4.jpg')} style={styles.bannerImg} />
                 </View>
             );
         }
@@ -110,7 +110,7 @@ export default class recommend extends Component {
     renderSpecial(){
         return (
             <View style={styles.moduleBox}>
-                <Text style={styles.subtitle}>私人订制</Text>
+                <Text style={styles.subtitle}>Monospace 共同工作空間</Text>
                 <FlatList
                     data={this.state.special}
                     keyExtractor={(item, index) => index}
@@ -123,7 +123,7 @@ export default class recommend extends Component {
     renderSpecialItem = ({ item }) => {
         return (
             <TouchableOpacity style={styles.specialItem}>
-                <Image source={require('../../img/goods.png')} style={styles.specialImg} />
+                <Image source={require('../../img/C.jpg')} style={styles.specialImg} />
                 <View style={styles.specialContainer}>
                     <Text style={styles.specialTitle} numberOfLines={2}>{item.title}</Text>
                     <Text style={styles.specialPrice}>￥{item.price}</Text>
@@ -136,7 +136,7 @@ export default class recommend extends Component {
     renderTopic() {
         return (
             <View style={styles.moduleBox}>
-                <Text style={styles.subtitle}>专题精选</Text>
+                <Text style={styles.subtitle}>共同夥伴</Text>
                 <FlatList
                     data={this.state.topic}
                     keyExtractor={(item, index) => index}
@@ -150,7 +150,7 @@ export default class recommend extends Component {
     renderTopicItem = ({ item }) => {
         return (
             <TouchableOpacity style={styles.topicItem}>
-                <Image source={require('../../img/topic.jpg')} style={styles.topicImg} />
+                <Image source={require('../../img/A.jpg')} style={styles.topicImg} />
                 <View style={styles.topicContainer}>
                     <View style={styles.topicText}>
                         <Text style={styles.topicTitle}>{item.title}</Text>
@@ -166,7 +166,7 @@ export default class recommend extends Component {
     renderLike(){
         return (
             <View style={styles.moduleBox}>
-                <Text style={styles.subtitle}>猜你喜欢</Text>
+                <Text style={styles.subtitle}>元惠吸貓小組</Text>
                 <FlatList
                     data={this.state.special}
                     keyExtractor={(item, index) => index}
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
         borderRadius:2,
     },
     topicContainer:{
-        flexDirection: 'row',
+        flexDirection: "column",
         justifyContent:'space-between',
         marginTop:10,
     },

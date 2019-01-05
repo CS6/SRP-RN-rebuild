@@ -36,7 +36,7 @@ import Btn_Qrcode from './app/page/home/Btn_Qrcode';
 import Btn_Search from './app/page/home/Btn_Search';
 import Btn_Remind from './app/page/home/Btn_Remind';
 import Request from './app/page/calendar/Request';
-
+import Registered from './app/page/registered/Registered'
 import Btn from './app/page/home/btn';
 import Login_View from './Login_View';
 import Login_index from './Login_index';
@@ -252,6 +252,7 @@ const RootStack = createStackNavigator(
 
     Details:{ screen: DetailsScreen},
     Request:{ screen: Request},
+    Registered:{screen:Registered}
     
   },
   {

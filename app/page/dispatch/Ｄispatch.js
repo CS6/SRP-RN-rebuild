@@ -24,6 +24,36 @@ const items = [
     name: "性別",
     id: 0,
     children: [{
+        name: "男",
+        id: 10,
+      },{
+        name: "女",
+        id: 17,
+      },{
+        name: "其他",
+        id: 13,
+      }]
+  },
+  {
+    name: "假別",
+    id: 1,
+    children: [{
+        name: "Quartz",
+        id: 20,
+      },{
+        name: "Zircon",
+        id: 21,
+      },{
+        name: "Sapphire",
+        id: 22,
+      },{
+        name: "Topaz",
+        id: 23,
+      }]
+  },{  
+    name: "性別",
+    id: 2,
+    children: [{
         name: "A",
         id: 10,
       },{
@@ -45,7 +75,7 @@ const items = [
   },
   {
     name: "假別",
-    id: 1,
+    id: 3,
     children: [{
         name: "Quartz",
         id: 20,
@@ -61,6 +91,45 @@ const items = [
       }]
   },
 ]
+
+const items_work = [
+  {
+   name: "工作類別",
+   id: 0,
+   children: [{
+       name: "病假",
+       id: 20,
+     },{
+       name: "事假",
+       id: 21,
+     },{
+       name: "喪假",
+       id: 22,
+     },{
+       name: "公假",
+       id: 24,
+     },{
+       name: "婚假",
+       id: 25,
+     },{
+       name: "產假",
+       id: 26,
+     },{
+       name: "遠端假",
+       id: 27,
+     },{
+       name: "生理假",
+       id: 28,
+     },{
+       name: "育嬰假",
+       id: 29,
+     },{
+       name: "其他",
+       id: 30,
+     }]
+ },
+]
+
 
 
 export default class Ｄispatch extends Component {
@@ -144,7 +213,11 @@ export default class Ｄispatch extends Component {
           selectToggleIconComponent={
             <View style={styles.searchBox} placeholder='備註' onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}>
 
-          <Icon>cancelcancelcancelcancelcancelcancel</Icon>
+{/* //////// */}
+          {/* <Icon>{items[0].children[0].name }</Icon> */}
+          <Icon>{items[0].name }</Icon>
+
+{/* //////// */}
           </View>
         }
          // showCancelButton
