@@ -56,6 +56,7 @@ export default class Registered extends Component {
             <SafeAreaView style={styles.container}>
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              
                     <Text>Details Screen</Text>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[0].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[1].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
@@ -64,17 +65,20 @@ export default class Registered extends Component {
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[4].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[5].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[6].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
-
+                    </View>
+                    <View  style={{marginVertical:40}}>
 
                     {/* <Icon>{items_Text[0].name }</Icon> */}
           {/* <Icon>{items_Text[0].children[0].name}</Icon> */}
 
-                    <Button
+                    {/* <Button
                         title="Go to Details"
                         onPress={() => this.props.navigation.navigate('Home')}
-                    />
-                    <Registered_Login/>
+                    /> */}
                     
+                    <Registered_Login > </Registered_Login>
+
+                      
                 </View>
             </SafeAreaView>
 
@@ -88,14 +92,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#91989F',
+    backgroundColor: '#FFFFFF',
   },all_textBox: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     width: width * 0.7,
-    backgroundColor: '#edededEE',
-    borderBottomWidth:5,
+    backgroundColor: '#FFFFFF',
+    color:'#707070',
+    fontSize:22,
+    borderColor:'#707070',
+    borderBottomWidth:2,
     marginTop:5,
     height: 50,
     marginVertical: 10,
