@@ -279,24 +279,6 @@ const Toggle = props => (
 )
 
 export default class App extends Component {
-  static navigationOptions = {
-    // headerTitle instead of title
-    // headerTitle: <Top />,
-    title: 'Setting',
-    headerStyle: {
-      // backgroundColor: '#f4511e',
-      backgroundColor: '#D0104C',
-
-      
-      },
-    headerTitleStyle:{flex:1, textAlign: 'center'},
-    headerRight:(  //定义导航栏右侧的按钮
-      // <Text style={{width:1}}></Text>
-      <Text/>
-
-      ),
-  };
-
   constructor() {
     super()
     this.state = {

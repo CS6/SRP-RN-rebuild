@@ -165,10 +165,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: width * 0.6,
+    width: width * 0.5,
+    height:width * 0.15,
     paddingVertical:10,
-    backgroundColor: '#A58987',
-    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    borderRadius: 50,
+    shadowRadius: 8,
+  shadowOpacity: 0.4,
+  elevation: 8,
+  shadowOffset: {
+    width: 0,
+    height: 4
+  }
   },
   searchIcon: {
     width: 16,
@@ -176,8 +184,15 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchContent: {
-    color: '#FFF',
+    color: '#C0D776',
     fontSize: 20,
+    shadowRadius: 8,
+     shadowOpacity: 0.1,
+    elevation: 8,
+    shadowOffset: {
+      width: 0,
+      height: 4
+    }
   },
   });
   

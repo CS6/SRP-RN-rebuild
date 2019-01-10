@@ -57,7 +57,6 @@ export default class Registered extends Component {
 
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
               
-                    <Text>Details Screen</Text>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[0].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[1].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
                     <TextInput style={styles.all_textBox} placeholder={items_Text[0].children[2].name} onChangeText={(txt)=>{this.setState({key:txt})}} value={this.state.key}/>
@@ -78,7 +77,8 @@ export default class Registered extends Component {
                     
                     <Registered_Login > </Registered_Login>
 
-                      
+                    {/* <Text>fontSize= 16 Screen</Text> */}
+
                 </View>
             </SafeAreaView>
 
@@ -92,20 +92,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#D0E889',
   },all_textBox: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     width: width * 0.7,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#D0E889',
     color:'#707070',
-    fontSize:22,
+    fontSize:16,
     borderColor:'#707070',
-    borderBottomWidth:2,
+    borderBottomWidth:1,
     marginTop:5,
     height: 50,
-    marginVertical: 10,
+    marginTop:15,
+    marginBottom:5,
+  //  marginVertical: 10,
   },searchBox: {
     flexDirection: 'row',
     alignItems: 'center',

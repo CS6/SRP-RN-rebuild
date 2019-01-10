@@ -188,15 +188,18 @@ class HomeScreen extends React.Component {
     headerStyle: {
       // backgroundColor: '#f4511e',
       backgroundColor: '#F8C3CD',
-
-      
+      activeTintColor: '#2562b4',      
       },
+      indicatorStyle: {
+        height: 1,
+    }, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了， 不知道还有没有其它方法隐藏？？？
     headerColor:"red",
      headerLeft: (  //定义导航栏右侧的按钮
       // <Text style={{width:1}}></Text>
       <Btn_Qrcode/>
 
       ),
+      headerMode:'screen',
       headerTitleStyle:{flex:1, alignItems: 'center',textAlign: 'center',justifyContent: 'center'},
 
       // headerLeftContainerStyle: {paddingRight: 100},
@@ -225,7 +228,7 @@ class HomeScreen extends React.Component {
 
       <View style={styles.container}>
        
-          
+
           {/* <View style={styles.home}> */}
           <Mian/> 
           {/* <Login_index/> */}

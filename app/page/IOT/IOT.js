@@ -175,45 +175,6 @@ for (let i = 0; i < 100; i++) {
   })
 }
 
-
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 30,
-  },
-  container: {
-    paddingTop: 40,
-    paddingHorizontal: 20,
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#333',
-  },
-  border: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#dadada',
-    marginBottom: 20,
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 5,
-    marginTop: 20,
-  },
-  label: {
-    fontWeight: 'bold',
-  },
-  switch: {
-    marginBottom: 20,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-  },
-})
 const accentMap = {
   'â': 'a',
   'Â': 'A',
@@ -254,7 +215,8 @@ const accentMap = {
   'ç': 'c',
   'Ç': 'C'
 };
-const tintColor = '#174A87'
+// const tintColor = '#174A87'
+const tintColor = '#D0E889'
 
 const Loading = props => (
   props.hasErrored ?
@@ -279,23 +241,23 @@ const Toggle = props => (
 )
 
 export default class App extends Component {
-  static navigationOptions = {
-    // headerTitle instead of title
-    // headerTitle: <Top />,
-    title: 'Setting',
-    headerStyle: {
-      // backgroundColor: '#f4511e',
-      backgroundColor: '#D0104C',
+  // static navigationOptions = {
+  //   // headerTitle instead of title
+  //   // headerTitle: <Top />,
+  //   title: 'IOT',
+  //   headerStyle: {
+  //     // backgroundColor: '#f4511e',
+  //     backgroundColor: '#6787A0',
 
       
-      },
-    headerTitleStyle:{flex:1, textAlign: 'center'},
-    headerRight:(  //定义导航栏右侧的按钮
-      // <Text style={{width:1}}></Text>
-      <Text/>
+  //     },
+  //   headerTitleStyle:{flex:1, textAlign: 'center'},
+  //   headerRight:(  //定义导航栏右侧的按钮
+  //     // <Text style={{width:1}}></Text>
+  //     <Text/>
 
-      ),
-  };
+  //     ),
+  // };
 
   constructor() {
     super()
@@ -312,10 +274,61 @@ export default class App extends Component {
       highlightChildren: false,
       selectChildren: false,
       hasErrored: false,
+      io: false,
+      ioA: false,
+      ioB: false,
+      ioC: false,
+      ioD: false,
+      ioE: false,
+
     }
     this.termId = 100;
   }
+  open_door= (io) =>  {
+    // this.fetchCategories()
+    fetch('http://192.168.43.40/on')
+    this.setState({ io })
+    // this.pretendToLoad()
+   }
+   open_door_A= (ioA) =>  {
+    // this.fetchCategories()
+    fetch('https://mywebsite.com/mydata.json')
+    this.setState({ ioA })
 
+    // this.pretendToLoad()
+   }
+   open_door_B= (ioB) =>  {
+    // this.fetchCategories()
+    fetch('https://mywebsite.com/mydata.json')
+    this.setState({ ioB })
+
+    // this.pretendToLoad()
+   }
+   open_door_C= (ioC) =>  {
+    // this.fetchCategories()
+    fetch('https://mywebsite.com/mydata.json')
+    this.setState({ ioC })
+
+    // this.pretendToLoad()
+   }
+   open_door_D= (ioD) =>  {
+    // this.fetchCategories()
+    fetch('https://mywebsite.com/mydata.json')
+    this.setState({ ioD })
+
+    // this.pretendToLoad()
+   }
+   open_door_E= (ioE) =>  {
+    // this.fetchCategories()
+    fetch('https://mywebsite.com/mydata.json')
+    this.setState({ ioE })
+
+    // this.pretendToLoad()
+   }
+
+  // onSingleToggle = (single) => {
+  //   this.setState({ single })
+  // }
 
   componentWillMount() {
    // this.fetchCategories()
@@ -511,7 +524,7 @@ searchAdornment = (searchTerm) => {
     return (
       <ScrollView keyboardShouldPersistTaps="always" style={{ backgroundColor: '#f8f8f8' }} contentContainerStyle={styles.container}>
         <Text style={styles.welcome}>
-            React native sectioned multi select example.
+            React native 8051 WIFI 智能開關  example.
 
         </Text>
         <SectionedMultiSelect
@@ -654,13 +667,19 @@ searchAdornment = (searchTerm) => {
           <View style={styles.border}>
             <Text style={styles.heading}>Settings</Text>
           </View>
-
+          <Toggle name="Single" onPress={this.open_door} val={this.state.io} />
+          <Toggle name="一號開關" onPress={this.open_door_A} val={this.state.ioA} />
+          <Toggle name="二號開關" onPress={this.open_door_B} val={this.state.ioB} disabled={!this.state.showDropDowns}/>
+          <Toggle name="三號開關" onPress={this.open_door_C} val={this.state.ioC} />
+          <Toggle name="四號開關" onPress={this.open_door_D} val={this.state.ioD} disabled={this.state.selectChildren}/>
+          <Toggle name="開關" onPress={this.open_door_E} val={this.state.ioE} disabled={this.state.highlightChildren}/>
+{/* 
           <Toggle name="Single" onPress={this.onSingleToggle} val={this.state.single} />
           <Toggle name="Read only headings" onPress={this.onReadOnlyHeadingsToggle} val={this.state.readOnlyHeadings} />
           <Toggle name="Expand dropdowns" onPress={this.onExpandDropDownsToggle} val={this.state.expandDropDowns} disabled={!this.state.showDropDowns}/>
           <Toggle name="Show dropdown toggles" onPress={this.onShowDropDownsToggle} val={this.state.showDropDowns} />
           <Toggle name="Auto-highlight children" onPress={this.onHighlightChildrenToggle} val={this.state.highlightChildren} disabled={this.state.selectChildren}/>
-          <Toggle name="Auto-select children" onPress={this.onSelectChildrenToggle} val={this.state.selectChildren} disabled={this.state.highlightChildren}/>
+          <Toggle name="Auto-select children" onPress={this.onSelectChildrenToggle} val={this.state.selectChildren} disabled={this.state.highlightChildren}/> */}
 
           <TouchableWithoutFeedback onPress={() => this.SectionedMultiSelect._removeAllItems()}>
             <View style={styles.switch}>
@@ -672,3 +691,45 @@ searchAdornment = (searchTerm) => {
     )
   }
 }
+
+
+
+
+const styles = StyleSheet.create({
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
+  },
+  container: {
+    paddingTop: 40,
+    paddingHorizontal: 20,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    color: '#333',
+  },
+  border: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#dadada',
+    marginBottom: 20,
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    marginTop: 20,
+  },
+  label: {
+    fontWeight: 'bold',
+  },
+  switch: {
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+  },
+})

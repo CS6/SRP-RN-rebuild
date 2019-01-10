@@ -20,8 +20,12 @@ import Settings from './app/page/home/Settings';
 import Details from './app/page/home/Details';
 import Webview from './app/page/web/Webview';
 
+import Bulletin from './app/page/bulletin/Bulletin';
+
 import Request from './app/page/calendar/Request';
 import Reply from './app/page/calendar/Reply';
+
+import IOT from './app/page/IOT/IOT'
 
 import Ｄispatch from './app/page/dispatch/Ｄispatch';
 
@@ -257,13 +261,14 @@ class meow extends React.Component {
 export default createBottomTabNavigator({
   scroll: { screen: scroll_Screen },
   Ｄispatch: { screen: Ｄispatch },
-  Settings: { screen: Settings },
+  Bulletin: { screen: Bulletin },
   meow: { screen: meow },
   info: { screen: Webview },
   Request: { screen: Request },
   Reply: { screen: Reply },
   index: { screen: index_Screen },
   Other: { screen: Otherpage },
+  IOT:{screen:IOT},
   // Registered:{screen:Registered}
 
 
@@ -274,7 +279,7 @@ export default createBottomTabNavigator({
         let iconName;
         if (routeName === 'Ｄispatch') {
           iconName = "address-card";
-        } else if (routeName === 'Settings') {
+        } else if (routeName === 'Bulletin') {
           iconName = "500px";
         } else if (routeName === 'meow') {
           iconName = "rocket";
@@ -284,6 +289,9 @@ export default createBottomTabNavigator({
           iconName = "calendar-alt";
         } else if (routeName === 'scroll') {
           iconName = "assistive-listening-systems";
+
+        } else if (routeName === 'IOT') {
+          iconName = "expeditedssl";
 
         } else if (routeName === 'Reply') {
           iconName = "calendar-check";
