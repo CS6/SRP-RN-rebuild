@@ -1,101 +1,305 @@
-import React from 'react';
-import { 
-  StyleSheet, 
-  Platform, 
-  Image, 
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
+
+import React, { Component } from 'react';
+import { Platform, 
+  StyleSheet,
+  View,
   Text,
+  Image,
+  Dimensions,
+  ScrollView,
+  TextInput,
+  Button,
   TouchableOpacity,
-  Linking, 
-  View, 
-  ScrollView } from 'react-native';
+} from 'react-native';
+const { width, height } = Dimensions.get('window');
 
-import firebase from 'react-native-firebase';
-import QRCodeScanner from 'react-native-qrcode-scanner';
+import { createBottomTabNavigator, SafeAreaView,createSwitchNavigator, createStackNavigator,withNavigation } from 'react-navigation';
 
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  onSuccess(e) {
-    Linking
-      .openURL(e.data)
-      .catch(err => console.error('An error occured', err));
-  }
-  async componentDidMount() {
-    // TODO: You: Do firebase things
-    // const { user } = await firebase.auth().signInAnonymously();
-    // console.warn('User -> ', user.toJSON());
+import Top from './app/page/top/top';
+// import Mian from './mian_vue';
+import Mian from './AppMaster';
 
-    // await firebase.analytics().logEvent('foo', { bar: '123'});
-  }
+import CommonHead from './app/components/commonHead';
 
+import QRvue from './app/page/qrcode/QRvue';
+import Details from './app/page/home/Details';
+import Setting from './app/page/setting/Setting'
+import WEB from './app/page/web/Webview';
+import Btn_Qrcode from './app/page/home/Btn_Qrcode';
+import Btn_Search from './app/page/home/Btn_Search';
+import Btn_Remind from './app/page/home/Btn_Remind';
+import Request from './app/page/calendar/Request';
+import Registered from './app/page/registered/Registered'
+import Btn from './app/page/home/btn';
+import Login_View from './Login_View';
+import Login_index from './Login_index';
+
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or59487 shake for dev menu',
+  android:
+    'Double tap R on your keyboard 9487to reload,\n' +
+    'Shake or press menu button for dev menu',
+});
+
+
+type Props = {};
+
+
+class DetailsScreen extends React.Component {
+  static navigationOptions = {
+    // headerTitle instead of title
+    // headerTitle: <Top />,
+    title: 'Details',
+
+  };
   render() {
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          <Image source={require('./assets/ReactNativeFirebase.png')} style={[styles.logo]}/>
-          <Text style={styles.welcome}>
-            Welcome to {'\n'} React Native Firebase
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit App.js
-          </Text>
-          <QRCodeScanner
-        onRead={this.onSuccess.bind(this)}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on your computer and scan the QR code.
-          </Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+
+        <Button
+          title="GoBack"
+          onPress={() => this.props.navigation.goBack().Alert("hi")}
+
+        />
+
+<Button
+          title="console"
+          onPress={() => console.warn(this.props)
         }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      />
-          {Platform.OS === 'ios' ? (
-            <Text style={styles.instructions}>
-              Press Cmd+R to reload,{'\n'}
-              Cmd+D or shake for dev menu
-            </Text>
-          ) : (
-            <Text style={styles.instructions}>
-              Double tap R on your keyboard to reload,{'\n'}
-              Cmd+M or shake for dev menu
-            </Text>
-          )}
-          <View style={styles.modules}>
-            <Text style={styles.modulesHeader}>The following Firebase modules are pre-installed:</Text>
-            {firebase.admob.nativeModuleExists && <Text style={styles.module}>admob()</Text>}
-            {firebase.analytics.nativeModuleExists && <Text style={styles.module}>analytics()</Text>}
-            {firebase.auth.nativeModuleExists && <Text style={styles.module}>auth()</Text>}
-            {firebase.config.nativeModuleExists && <Text style={styles.module}>config()</Text>}
-            {firebase.crashlytics.nativeModuleExists && <Text style={styles.module}>crashlytics()</Text>}
-            {firebase.database.nativeModuleExists && <Text style={styles.module}>database()</Text>}
-            {firebase.firestore.nativeModuleExists && <Text style={styles.module}>firestore()</Text>}
-            {firebase.functions.nativeModuleExists && <Text style={styles.module}>functions()</Text>}
-            {firebase.iid.nativeModuleExists && <Text style={styles.module}>iid()</Text>}
-            {firebase.invites.nativeModuleExists && <Text style={styles.module}>invites()</Text>}
-            {firebase.links.nativeModuleExists && <Text style={styles.module}>links()</Text>}
-            {firebase.messaging.nativeModuleExists && <Text style={styles.module}>messaging()</Text>}
-            {firebase.notifications.nativeModuleExists && <Text style={styles.module}>notifications()</Text>}
-            {firebase.perf.nativeModuleExists && <Text style={styles.module}>perf()</Text>}
-            {firebase.storage.nativeModuleExists && <Text style={styles.module}>storage()</Text>}
-          </View>
-        </View>
-      </ScrollView>
+
+        />
+        
+      </View>
     );
   }
 }
 
+// class TTOOPP extends React.Component {
+  
+//   // 头部左侧
+//   renderLeftItem() {
+//     return (
+
+//       // <TouchableOpacity onPress={() => this.props.navigation.navigate('QRvue')}
+//       //   style={styles.navLeft}>
+//       //   <Image source={require('./app/img/scanning.png')} style={styles.navIcon} />
+//       //   <Text style={styles.navText}>扫一扫</Text>
+//       // </TouchableOpacity>
+//       <Btn_Qrcode/>
+//     )
+//   }
+  
+//   // 头部中间
+//   renderTitleItem() {
+//     return (
+//       // <TouchableOpacity onPress={() => { this.props.navigation.navigate('Details') }}>
+//       //   <View style={styles.searchBox}>
+//       //     <Image source={require('./app/img/search.png')} style={styles.searchIcon} />
+//       //     <Text style={styles.searchContent}>搜索商品, 共10161款好物</Text>
+//       //   </View>
+//       // </TouchableOpacity>
+//       <Btn_Search/>
+//     )
+//   }
+//   // 头部右侧
+  
+//   renderRightItem() {
+//     return (
+//       // <TouchableOpacity onPress={() => { this.props.navigation.navigate('WEB') }} style={styles.navRight}>
+//       //   <Image source={require('./app/img/remind.png')} style={styles.navIcon} />
+//       //   <Text style={styles.navText}>消息</Text>
+//       // </TouchableOpacity>
+//       <Btn_Remind/>
+//     )
+//   }
+
+
+//   // static navigationOptions = {
+//   //   // headerTitle instead of title
+//   //   headerTitle:  >,
+//   //   //title: 'Details',
+
+//   // };
+
+//   render() {
+//     return (
+//       <CommonHead
+//     //  leftItem={() => this.renderLeftItem()}
+//      titleItem={() => this.renderTitleItem()}
+//   //  rightItem={() => this.renderRightItem()}
+//    />
+   
+
+//     );
+//   }
+// }
+class MyBackButton extends React.Component {
+  render() {
+    return <Button title="Back" onPress={() => { this.props.navigation.push('Details')}} />;
+  }
+}
+class Welcome extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome
+        </Text>
+        <Button
+          title='go'
+          onPress={() => { this.props.navigation.navigate('Welcome1') }}
+        />
+      </View>
+    );
+  }
+}
+
+class Welcome1 extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome1
+        </Text>
+        <Button
+          title='go'
+          onPress={() => { this.props.navigation.navigate('Login') }}
+        />
+      </View>
+    );
+  }
+}
+// export default withNavigation(MyBackButton);
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    // headerTitle instead of title
+    // tabBarComponent: <TTOOPP />,
+      headerTitle:<Btn_Search/>,
+    //  headerTitle:<Text >FUCK</Text>,
+    headerStyle: {
+      // backgroundColor: '#f4511e',
+      backgroundColor: '#D0E889',
+      activeTintColor: '#2562b4',      
+      },
+      indicatorStyle: {
+        height: 1,
+    }, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了， 不知道还有没有其它方法隐藏？？？
+    headerColor:"red",
+     headerLeft: (  //定义导航栏右侧的按钮
+      // <Text style={{width:1}}></Text>
+      <Btn_Qrcode/>
+
+      ),
+      headerMode:'screen',
+      headerTitleStyle:{flex:1, alignItems: 'center',textAlign: 'center',justifyContent: 'center'},
+
+      // headerLeftContainerStyle: {paddingRight: 100},
+      headerRight:(  //定义导航栏右侧的按钮
+        // <Text style={{width:1}}></Text>
+        <Btn_Remind/>
+  
+        ),
+        
+  //  headerTitle:  
+  //   <Button
+  //   title="Go to Details"
+  //   onPress={() => console.warn(DetailsScreen())}
+  // />
+//<Btn_Qrcode/>
+    //title: 'Details',
+
+};
+
+
+
+
+  render() {
+    return (
+      // <SafeAreaView style={styles.container}>
+
+      <View style={styles.container}>
+       
+
+          {/* <View style={styles.home}> */}
+          <Mian/> 
+          {/* <Login_index/> */}
+          {/* <Button
+    title="Go to Details"
+    onPress={() => this.props.navigation.push('Details')}
+  /> */}
+          {/* </View> */}
+
+      </View>
+      //</SafeAreaView> 
+    );
+  }
+}
+
+const RootStack = createStackNavigator(
+  {
+    Login:{screen:Login_index},
+
+    Home:{ screen: HomeScreen } ,
+    
+    QRvue:{ screen: QRvue},
+    Setting:{ screen: Setting},
+
+    Details:{ screen: DetailsScreen},
+    Request:{ screen: Request},
+    Registered:{screen:Registered}
+    
+  },
+  {
+    initialRouteName: 'Login',
+    
+  }
+);
+
+const Hello_Stack = createSwitchNavigator({
+  Welcome,
+  Welcome1,
+  App: RootStack
+})
+
+
+
+export default class App extends Component<Props> {
+
+
+  render() {
+    return (
+      // <Hello_Stack onNavigationStateChange={(prevState, currentState) => { console.log(currentState) }} />
+                // <Hello_Stack />
+<SafeAreaView style={{flex: 1, backgroundColor: 'red'}} forceInset={{ bottom: 'never' ,top: 'never' }}>
+                  <RootStack />
+                  </SafeAreaView>
+
+    );
+  }
+}
+
+////消除多餘安全邊距 https://reactnavigation.org/docs/zh-Hans/handling-iphonex.html
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+
     backgroundColor: '#F5FCFF',
   },
+  home: {
+    flex: 16,
+    flexDirection: 'column',
+  },
+
+  
   logo: {
     height: 120,
     marginBottom: 16,
@@ -110,7 +314,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#DDDDDD',
     marginBottom: 5,
   },
   modules: {
@@ -125,21 +329,51 @@ const styles = StyleSheet.create({
     marginTop: 4,
     textAlign: 'center',
   },
-  centerText: {
-    flex: 1,
-    fontSize: 18,
-    padding: 32,
-    color: '#777',
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: 5,
+    padding: 5,
   },
-  textBold: {
-    fontWeight: '500',
-    color: '#000',
+  navLeft: {
+    alignItems: 'center',
+    marginLeft: 10,
   },
-  buttonText: {
-    fontSize: 21,
-    color: 'rgb(0,122,255)',
+  navRight: {
+    alignItems: 'center',
+    marginRight: 10,
   },
-  buttonTouchable: {
-    padding: 16,
+  navIcon: {
+    height: 20,
+    width: 20,
   },
+  navText: {
+    fontSize: 10,
+  },
+  searchBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width * 0.7,
+    backgroundColor: '#ededed',
+    borderRadius: 5,
+    height: 30,
+  },
+  searchIcon: {
+    width: 16,
+    height: 16,
+    marginRight: 6,
+  },
+  searchContent: {
+    color: '#666',
+    fontSize: 14,
+  },
+  tabBarUnderline: {
+    backgroundColor: '#b4282d',
+    height: 2,
+    width: width / 8,
+    marginLeft: 6
+  }
 });

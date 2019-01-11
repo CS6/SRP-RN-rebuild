@@ -74,11 +74,14 @@ import com.android.build.OutputFile
  * ]
  */
 
+
 project.ext.react = [
-  entryFile: "index.js"
+        entryFile: "index.js",
+        nodeExecutableAndArgs : ["/usr/local/bin/node"]//添加node路径
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -120,6 +123,16 @@ android {
     // because of firestore:
     multiDexEnabled true
   }
+      signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
   splits {
     abi {
       reset()
@@ -132,6 +145,8 @@ android {
     release {
       minifyEnabled enableProguardInReleaseBuilds
       proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+      signingConfig signingConfigs.release
+
     }
     debug {
       minifyEnabled false
@@ -154,6 +169,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     compile project(':react-native-camera')
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
