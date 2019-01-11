@@ -187,7 +187,7 @@ class HomeScreen extends React.Component {
     //  headerTitle:<Text >FUCK</Text>,
     headerStyle: {
       // backgroundColor: '#f4511e',
-      backgroundColor: '#F8C3CD',
+      backgroundColor: '#D0E889',
       activeTintColor: '#2562b4',      
       },
       indicatorStyle: {
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#DDDDDD',
     marginBottom: 5,
   },
   modules: {

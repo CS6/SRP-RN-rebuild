@@ -94,7 +94,7 @@ class scroll_Screen extends React.Component {
 
         <ScrollableTabView
           renderTabBar={() => <ScrollableTabBar />}
-          tabBarBackgroundColor='#EEA9A9'
+          tabBarBackgroundColor='#FEDFE1'
           tabBarActiveTextColor='#b4282d'
           tabBarInactiveTextColor='#333'
 
@@ -322,7 +322,7 @@ export default createBottomTabNavigator({
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
       style: {
-        backgroundColor: '#F8C3CD',
+        backgroundColor: '#FEDFE1',
       },
     },
   },

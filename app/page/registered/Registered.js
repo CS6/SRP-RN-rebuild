@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: width * 0.7,
     backgroundColor: '#D0E889',
-    color:'#707070',
+    color:'#878787',
     fontSize:16,
     borderColor:'#707070',
     borderBottomWidth:1,
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginTop:15,
     marginBottom:5,
+    
   //  marginVertical: 10,
   },searchBox: {
     flexDirection: 'row',

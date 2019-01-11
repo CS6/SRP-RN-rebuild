@@ -38,7 +38,7 @@ export default class qrcode extends Component {
             <QRCode
               value={this.state.text}
               size={200}
-              bgColor='purple'
+              bgColor='black'
               fgColor='white'/>
                <Button
             title="Go to Home"
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   input: {
     height: 40,
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
   },
+  
   background: {
     height: 1000,
     width: 600,

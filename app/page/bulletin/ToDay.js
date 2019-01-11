@@ -10,7 +10,7 @@ import {
   Linking, 
   ScrollView,
   TextInput,
-  Button 
+  Button, 
 } from 'react-native';
 
 import { SafeAreaView, } from 'react-navigation';
@@ -61,9 +61,9 @@ class Card extends React.Component {
   // 滑动tab
   renderScrollableTab() {
     return (
-      <View style={{ flex: 1,padding:5,     }}>
+      <View style={{ flex: 1,padding:15,     }}>
         <View style={{ flex: 1, flexDirection:'column',justifyContent: 'center'}}>
-        
+
         <Text style={{ fontSize:22, }}>{items_Text[0].children[0].title }</Text>
                   {/* <Icon>{items_Text[0].children[0].name }</Icon> */}
 
@@ -100,7 +100,9 @@ export default class ToDay extends Component {
     super();
     this.state = {};
   }
-  
+  _getAll() {
+    
+  }
 
   onSuccess(e) {
     Linking
@@ -122,9 +124,12 @@ export default class ToDay extends Component {
           <ScrollView style={styles.Scrollcontainer}>
           <Card/>
           <Card/>
-          <Card/>
-          <Card/>
+          {/* <Button style={styles.ButtonCard}/> */}
+          <TouchableOpacity title='GET' style={styles.ButtonCard} onPress={this._getAll}/>
 
+          <Card/>
+          <Card/>
+        
           </ScrollView>
 
           </SafeAreaView>
@@ -145,12 +150,12 @@ const styles = StyleSheet.create({
   },
   Scrollcontainer:{
     flex: 1,
-    padding:20,
+    padding:10,
+    
+    
 
 
-  }
-  
-  ,centerText: {
+  },centerText: {
     flex: 1,
     fontSize: 18,
     padding: 32,
@@ -179,6 +184,25 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
   shadowRadius: 8,
   shadowOpacity: 0.4,
+  elevation: 8,
+  shadowOffset: {
+    width: 0,
+    height: 4
+  },
+  marginHorizontal:10,
+  },
+  ButtonCard: {
+    flexDirection:'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width * 0.3,
+    height:width * 0.6,
+    backgroundColor: '#ededed',
+    borderRadius: 15,
+    marginVertical: 10,
+    shadowColor: '#000000',
+  shadowRadius: 8,
+  shadowOpacity: 0.6,
   elevation: 8,
   shadowOffset: {
     width: 0,

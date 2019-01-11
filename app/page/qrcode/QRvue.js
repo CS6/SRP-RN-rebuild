@@ -27,10 +27,10 @@ export default class qrcode extends Component {
   static navigationOptions = {
     // headerTitle instead of title
     // headerTitle: <Top />,
-    title: 'qrcode',
+    title: 'QRcode',
     headerStyle: {
       // backgroundColor: '#f4511e',
-      backgroundColor: '#F0C0AB',
+      backgroundColor: '#D0E889',
 
       
       },
@@ -75,9 +75,12 @@ export default class qrcode extends Component {
         <ScrollableTabView
           renderTabBar={() => <ScrollableTabBar />}
           //tabBarBackgroundColor='#fff'
-          tabBarBackgroundColor='#FEDFE1'
-          tabBarActiveTextColor='#b4282d'
+          tabBarUnderlineStyle='#8BA812'
+          tabBarBackgroundColor='#fff'
+          tabBarActiveTextColor='#8BA812'
           tabBarInactiveTextColor='#333'
+
+
           tabBarUnderlineStyle={styles.tabBarUnderline}
         >
               {/* label: ['推荐', '新品', '居家', '餐厨', '配件', '服装', '电器', '洗护', '杂货', '饮食', '婴童', '志趣'], */}
@@ -140,4 +143,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  tabBarUnderline: {
+    backgroundColor: '#8BA812',
+    height: 2,
+    // width: width /4,
+    // marginLeft: 6
+  }
 });
